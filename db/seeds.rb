@@ -8,7 +8,7 @@ customer_1 = Customer.create!(
 customer_2 = Customer.create!(
   first_name: 'Mark', 
   last_name: 'Christopher', 
-  email: 'mark@test.com', 
+  email: 'grant@test.com', 
   address: '4321 Sweet Street, Boulder, CO 80200'
 )
 
