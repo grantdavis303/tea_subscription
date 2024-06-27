@@ -6,6 +6,4 @@ class Customer < ApplicationRecord
                         :last_name,
                         :email,
                         :address
-
-  # enums
 end
