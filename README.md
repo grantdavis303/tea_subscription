@@ -33,6 +33,49 @@ rails s
 
 ### End Points / Wireframes
 
+**End Point 1**
+- Create a subscription
+- Need to pass in customer's id
+
+```
+POST /api/v1/users/:id/subscriptions
+Content-Type: application/json
+Accept: application/json
+
+{
+  "customer_id": "1",
+  "tea_id": "1"
+}
+```
+
+**End Point 1 Happy Path Response**
+
+```
+{
+  "success": "Subscription created successfully.",
+}
+```
+
+**End Point 2**
+- Update a subscription's status from active to cancelled
+- Need to pass in customer's id and subscription_id
+
+```
+PATCH /api/v1/users/:id/subscriptions/:id
+Content-Type: application/json
+Accept: application/json
+```
+
+**End Point 3**
+- Retrieve all of a customer's subscriptions
+- Need to pass in customer's id
+
+```
+GET /api/v1/users/:id/subscriptions
+Content-Type: application/json
+Accept: application/json
+```
+
 ### Goals
 
 **Project Completion**
@@ -50,13 +93,15 @@ rails s
 
 ### Tests
 
-* 0 Total Tests (0 / 0 LOC (100.0%) covered)
+* 20 Total Tests (80 / 80 LOC (100.0%) covered)
+* 20 Model Tests (80 / 80 LOC (100.0%) covered)
 
 Testing Instructions
 
 ### Resources
 
 * [GitHub Project Board]()
+* [Tea Temperatures Guide](https://www.kitchenaid.com/pinch-of-help/countertop-appliances/tea-temperatures.html)
 
 ### Contributors
 
