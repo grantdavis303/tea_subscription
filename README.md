@@ -25,13 +25,17 @@ rails s
 - Ruby 3.2.2
 - Rails 7.1.3.4
 
+### Database Schema
+
+![database_schema](img/db_schema.png)
+
 ### Progress
 
-- [ ] End Point 1 - Subscribe a customer to a tea subscription
-- [ ] End Point 2 - Cancel a customer's tea subscription
-- [ ] End Point 3 - See all of a customer's subscriptions (both active and cancelled)
+- [x] End Point 1 - Subscribe a customer to a tea subscription
+- [x] End Point 2 - Cancel a customer's tea subscription
+- [x] End Point 3 - See all of a customer's subscriptions (both active and cancelled)
 
-### End Points / Wireframes
+### End Points
 
 **End Point 1**
 - Create a subscription
@@ -50,7 +54,7 @@ Accept: application/json
 
 **End Point 1 Happy Path Response**
 
-```
+```JSON
 {
   "success": "Subscription created successfully.",
 }
@@ -66,6 +70,14 @@ Content-Type: application/json
 Accept: application/json
 ```
 
+**End Point 2 Happy Path Response**
+
+```JSON
+{
+  "success": "Subscription cancelled.",
+}
+```
+
 **End Point 3**
 - Retrieve all of a customer's subscriptions
 - Need to pass in customer's id
@@ -74,6 +86,25 @@ Accept: application/json
 GET /api/v1/users/:id/subscriptions
 Content-Type: application/json
 Accept: application/json
+```
+
+**End Point 3 Happy Path Response**
+
+```JSON
+{
+  "data": [
+    {
+      "id": null,
+      "type": "subscription",
+      "attributes": {
+          "title": "Subscription to Black Tea",
+          "price": "$25",
+          "status": "active",
+          "frequency": "monthly"
+      }
+    }
+  ]
+}
 ```
 
 ### Goals
@@ -93,14 +124,20 @@ Accept: application/json
 
 ### Tests
 
-* 20 Total Tests (80 / 80 LOC (100.0%) covered)
-* 20 Model Tests (80 / 80 LOC (100.0%) covered)
+* 23 Total Tests (155 / 155 LOC (100.0%) covered)
+* 3 Request Tests (79 / 79 LOC (100.0%) covered)
+* 20 Model Tests (83 / 83 LOC (100.0%) covered)
 
-Testing Instructions
+**Testing Instructions**
+
+```
+rails db:{drop,create,migrate,seed}
+bundle exec rspec spec
+```
 
 ### Resources
 
-* [GitHub Project Board]()
+* [GitHub Project Board](https://github.com/users/grantdavis303/projects/1)
 * [Tea Temperatures Guide](https://www.kitchenaid.com/pinch-of-help/countertop-appliances/tea-temperatures.html)
 
 ### Contributors
